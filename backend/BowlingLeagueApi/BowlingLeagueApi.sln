@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mission10Assignment", "Mission10Assignment\Mission10Assignment.csproj", "{1C4021F5-60BD-4372-ABEF-AD81D8836CA0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BowlingLeagueApi", "BowlingLeagueApi\BowlingLeagueApi.csproj", "{1C4021F5-60BD-4372-ABEF-AD81D8836CA0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

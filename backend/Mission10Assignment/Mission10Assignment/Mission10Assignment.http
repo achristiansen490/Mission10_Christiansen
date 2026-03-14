@@ -1,6 +1,0 @@
-@Mission10Assignment_HostAddress = http://localhost:5069
-
-GET {{Mission10Assignment_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

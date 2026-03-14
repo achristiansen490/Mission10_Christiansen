@@ -7,8 +7,8 @@ This project has two parts:
 The frontend calls the backend endpoint `/api/bowlers` and displays bowlers on the **Marlins** and **Sharks** teams.
 
 ## Project Structure
-- `backend/Mission10Assignment/Mission10Assignment`: ASP.NET project to run
-- `backend/Mission10Assignment/Mission10Assignment/Data/BowlingLeague.sqlite`: database file
+- `backend/BowlingLeagueApi/BowlingLeagueApi`: ASP.NET project to run
+- `backend/BowlingLeagueApi/BowlingLeagueApi/Data/BowlingLeague.sqlite`: database file
 - `frontend`: React app to run with Vite
 
 ## Prerequisites
@@ -23,9 +23,15 @@ Run backend and frontend in separate terminals/apps.
 
 ### 1. Start Backend (Rider or Visual Studio)
 Open this project folder:
-- `backend/Mission10Assignment/Mission10Assignment`
+- `backend/BowlingLeagueApi/BowlingLeagueApi`
 
 Run the app (`dotnet run` or IDE Run button).
+
+If running from terminal at repo root, this command is the most reliable:
+
+```bash
+dotnet run --project "./backend/BowlingLeagueApi/BowlingLeagueApi/BowlingLeagueApi.csproj"
+```
 
 Expected backend URL:
 - `http://localhost:5069`
@@ -66,14 +72,27 @@ Backend is not running, or running on a different port.
 ### 404 from `/api/bowlers`
 Backend started in wrong project folder.
 Use:
-- `backend/Mission10Assignment/Mission10Assignment`
+- `backend/BowlingLeagueApi/BowlingLeagueApi`
+
+### `The provided file path does not exist` (dotnet)
+Use quotes if your path includes spaces and run with an explicit project path:
+
+```bash
+dotnet run --project "./backend/BowlingLeagueApi/BowlingLeagueApi/BowlingLeagueApi.csproj"
+```
+
+If needed, confirm the path first:
+
+```bash
+find . -name "BowlingLeagueApi.csproj"
+```
 
 ## Build Commands (Optional)
 
 Backend:
 
 ```bash
-cd backend/Mission10Assignment/Mission10Assignment
+cd backend/BowlingLeagueApi/BowlingLeagueApi
 dotnet build
 ```
 
