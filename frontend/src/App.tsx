@@ -1,39 +1,42 @@
-import { useState } from 'react'
 import './App.css'
-import GoButton from './GoButton'
-import GoLabel from './GoLabel'
-
-function Welcome() {
-  return <h1>Welcome to Mission 10 Assignment</h1>
-}
-
-function Footer() {
-  return <footer>© 2026 Mission 10 Assignment. All rights reserved.</footer>
-}
-
-function Content() {
-  return <p>Here is a random number for you:
-     <br /> {Math.floor(Math.random() * 100)}</p>
-}
-
-
-
+import { useEffect, useState } from 'react'
+import BowlerTable, { type Bowler } from './BowlerTable'
+import Heading from './Heading'
 
 function App() {
-  const [goLevel, updateGo] = useState(1);
-  const incrementGo = () => {
-    updateGo(goLevel * 2);
-  }
+  // Store the API data and simple UI status flags.
+  const [bowlers, setBowlers] = useState<Bowler[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState('')
+
+  useEffect(() => {
+    // Load the assignment data from the ASP.NET API.
+    const loadBowlers = async () => {
+      try {
+        const response = await fetch('/api/bowlers')
+        if (!response.ok) {
+          throw new Error(`Failed to load data (${response.status})`)
+        }
+
+        const data = (await response.json()) as Bowler[]
+        setBowlers(data)
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Unable to load bowlers.')
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    loadBowlers()
+  }, [])
+
   return (
-    <>
-      <Welcome />
-      <Content />
-      <GoButton goButtonFunction = {incrementGo} />
-      <br />
-      <br />
-      <GoLabel numToDisplay={goLevel} />
-      <Footer />
-    </>
+    <main className="app-container">
+      <Heading />
+      {isLoading && <p>Loading bowlers...</p>}
+      {!isLoading && error && <p className="error">{error}</p>}
+      {!isLoading && !error && <BowlerTable bowlers={bowlers} />}
+    </main>
   )
 }
 
