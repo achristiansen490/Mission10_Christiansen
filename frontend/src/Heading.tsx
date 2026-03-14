@@ -1,6 +1,6 @@
 function Heading() {
   return (
-    <header>
+    <header className="page-header">
       {/* Main page title shown at the top of the app. */}
       <h1>Bowling League Bowlers</h1>
       <p className="subtitle">

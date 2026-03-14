@@ -1,58 +1,105 @@
 /* Center the app content and limit page width. */
 .app-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2rem 1rem 3rem;
+  max-width: 1150px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #ffffff;
+  border: 1px solid #dbe3ef;
+  border-radius: 16px;
+  box-shadow:
+    0 20px 40px -28px rgba(15, 23, 42, 0.45),
+    0 10px 18px -14px rgba(15, 23, 42, 0.3);
+}
+
+.page-header {
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 /* Basic heading style. */
 h1 {
   margin: 0;
-  color: #1f2937;
+  color: #0f172a;
+  font-size: clamp(1.65rem, 2.6vw, 2.15rem);
+  letter-spacing: 0.2px;
 }
 
 /* Subtitle under the main heading. */
 .subtitle {
   margin-top: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   color: #4b5563;
+  max-width: 60ch;
 }
 
 /* Adds horizontal scroll on smaller screens. */
 .table-wrap {
   overflow-x: auto;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
+  border: 1px solid #dbe3ef;
+  border-radius: 12px;
+  background: #ffffff;
 }
 
 /* Core table layout. */
 table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 760px;
+  min-width: 790px;
 }
 
 /* Shared cell spacing and borders. */
 th,
 td {
-  padding: 0.65rem 0.75rem;
+  padding: 0.72rem 0.82rem;
   border-bottom: 1px solid #e5e7eb;
   text-align: left;
   white-space: nowrap;
+  font-size: 0.95rem;
 }
 
 /* Header row background color. */
 thead th {
-  background: #f3f4f6;
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  color: #1f2937;
+  font-size: 0.87rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 /* Zebra striping for readability. */
 tbody tr:nth-child(even) {
-  background: #fcfdff;
+  background: #f8fbff;
+}
+
+tbody tr:hover {
+  background: #eef6ff;
+}
+
+.status {
+  margin: 0;
+  padding: 0.8rem 0.95rem;
+  border-radius: 10px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
 }
 
 /* Error message style for failed API calls. */
 .error {
+  margin: 0;
+  padding: 0.8rem 0.95rem;
   color: #b91c1c;
   font-weight: 600;
+  border-radius: 10px;
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+}
+
+@media (max-width: 760px) {
+  .app-container {
+    margin: 0.9rem;
+    padding: 1rem;
+    border-radius: 14px;
+  }
 }

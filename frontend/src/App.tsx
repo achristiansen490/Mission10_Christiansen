@@ -33,7 +33,7 @@ function App() {
   return (
     <main className="app-container">
       <Heading />
-      {isLoading && <p>Loading bowlers...</p>}
+      {isLoading && <p className="status">Loading bowlers...</p>}
       {!isLoading && error && <p className="error">{error}</p>}
       {!isLoading && !error && <BowlerTable bowlers={bowlers} />}
     </main>
